@@ -1,0 +1,128 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+@font-face {
+  font-family: "Shabnam";
+  src: url("/fonts/Shabnam/Shabnam-Bold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Shabnam";
+  src: url("/fonts/Shabnam/Shabnam-Thin.woff") format("woff");
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Vazirmatn";
+  src: url("/fonts/Vazirmatn/Vazirmatn-Bold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Vazirmatn";
+  src: url("/fonts/Vazirmatn/Vazirmatn-Thin.woff") format("woff");
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "BYekan";
+  src: url("/fonts/BYekan/BYekan+.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "BYekan";
+  src: url("/fonts/BYekan/BYekan+ Bold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: "BYekan", Arial, Helvetica, sans-serif;
+}
+
+/* نوار سبز زیر متن */
+.underline-green {
+  position: relative;
+  display: inline-block;
+  z-index: 1;
+}
+.underline-green::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 0.6em;
+  background: #4ade80;
+  z-index: -1;
+  opacity: 0.7;
+}
+
+.underline-purple {
+  position: relative;
+  display: inline-block;
+  z-index: 1;
+}
+.underline-purple::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 0.6em;
+  background: #a78bfa;
+  z-index: -1;
+  opacity: 0.7;
+}
+
+.underline-pink {
+  position: relative;
+  display: inline-block;
+  z-index: 1;
+}
+.underline-pink::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 0.6em;
+  background: #f9a8d4; /* صورتی */
+  z-index: -1;
+  opacity: 0.7;
+}
+
+.custom-break {
+  display: block;
+  height: 0.7em;
+}
