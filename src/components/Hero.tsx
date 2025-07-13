@@ -8,27 +8,38 @@ export default function Hero() {
         <h1 className="text-3xl md:text-6xl font-extrabold mb-5 leading-normal">
           از <span className="underline-purple">برند</span> محبوبت خرید کن
           <br />
-          <span>
-            <span>تحویلت میده</span>{" "}
-            <span className="underline-green ">قیمت</span>
-          </span>
+          <span />
+          !تحویلت میده
+          <span className="underline-green ">قیمت</span>
+          <span />
         </h1>
         <p className="text-base md:text-xlg text-gray-700 mb-8 max-w-md">
-          قیمت رابطه‌ای برای خرید راحت از سایت برندهای محبوب پوشاک دنیا؛ که
-          باهاش می‌تونید با استفاده از بات تلگرام به سبد خریدت اضافه‌ش کنید تا
-          براتون تو کوتاه‌ترین زمان ممکن بفرستیمش
+          <span className="underline-purple" />
+          ربات قیمت رابطه‌ برای خرید راحت از سایت برندهای محبوب پوشاک ترکیه که
+          باهاش می تونیدبرند و محصولتون انتخاب کنید و قیمتشو ببنید و همونجاخرید
+          آنی انجام بدید وتو کوتاه ترین زمان ممکن براتون ارسال بشه
         </p>
         <div className="w-2/3 flex justify-end mt-4">
-          <button className="w-full bg-black text-white px-8 py-3 rounded-lg flex items-center justify-center gap-2 text-lg font-bold hover:bg-gray-800 transition">
-            <span className="icon-[mdi--telegram] text-2xl " />
-            اتصال به بات تلگرام
+          <button className="w-full bg-[#1976d2] text-white px-8 py-3 rounded-lg flex items-center justify-end gap-2 text-lg font-bold hover:bg-[#115293] transition">
+            <span className="flex items-center gap-2 w-full justify-between">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                fill="white"
+                viewBox="0 0 24 24"
+              >
+                <path d="M9.036 16.572l-.397 3.77c.57 0 .816-.246 1.115-.543l2.67-2.558 5.534 4.04c1.014.56 1.74.266 1.99-.94l3.61-16.84c.33-1.53-.553-2.13-1.54-1.76L2.16 9.68c-1.5.59-1.48 1.43-.256 1.81l4.6 1.44 10.68-6.74c.5-.32.96-.14.58.2" />
+              </svg>
+              <span>اتصال به بات تلگرام</span>
+            </span>
           </button>
         </div>
       </div>
       {/* ستون راست: تصویر */}
       <div className="w-full md:w-1/2 flex justify-center mt-10 md:mt-0">
         <Image
-          src="/images/mobile.png"
+          src="/images/banner.png"
           alt="ioio mobile preview"
           width={350}
           height={600}
