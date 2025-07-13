@@ -39,7 +39,7 @@ export default function Hero() {
         </div>
       </div>
       {/* ستون راست: تصویر */}
-      <div className="w-full md:w-1/2 flex justify-center mt-10 md:mt-0">
+      <div className="w-full md:w-1/2 flex justify-start md:justify-center mt-10 md:mt-0 md:pl-8">
         <Image
           src="/images/banner.png"
           alt="ioio mobile preview"
