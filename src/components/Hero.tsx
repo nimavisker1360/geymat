@@ -10,14 +10,16 @@ export default function Hero() {
           <br />
           <span />
           !تحویلت میده
-          <span className="underline-green ">قیمت</span>
+          <span className="underline-green ">جی استایل</span>
           <span />
         </h1>
         <p className="text-base md:text-xlg text-gray-700 mb-8 max-w-md">
           <span className="underline-purple" />
-          ربات قیمت رابطه‌ برای خرید راحت از سایت برندهای محبوب پوشاک ترکیه که
-          باهاش می تونیدبرند و محصولتون انتخاب کنید و قیمتشو ببنید و همونجاخرید
-          آنی انجام بدید وتو کوتاه ترین زمان ممکن براتون ارسال بشه
+          اولین بات تلگرامی سرچ محصولات از برندهای معروف ترکیه مشاهده بهترین
+          قیمت ها و سفارش محصولات شامل لباس و پوشاک ومحصولات آرایشی و بهداشتی
+          میباشد این بات طوری طراحی شده که با کمک هوش مصنوعی از بین محصولات
+          معروف ترکیه بهترین قیمت پیدا میکند و عکس محصول و قیمت و همچنین لینک
+          ورود به وبسایت براتون میفرسته
         </p>
         <div className="w-2/3 flex justify-end mt-4">
           <button className="w-full bg-[#1976d2] text-white px-8 py-3 rounded-lg flex items-center justify-end gap-2 text-lg font-bold hover:bg-[#115293] transition">
