@@ -179,6 +179,104 @@ export default function Page() {
         <Hero />
         <OrderSteps />
         <Brands />
+        {/* FAQ Section */}
+        <section
+          id="faq"
+          className="w-full flex flex-col items-center justify-center py-5 relative bg-[#f5f5f5] overflow-hidden"
+        >
+          {/* Desktop: FAQ title and image side by side */}
+          <div className="hidden md:flex flex-row items-center justify-center w-full max-w-3xl mb-12 relative z-10">
+            <h2
+              className="text-3xl md:text-5xl font-extrabold text-center relative z-10"
+              style={{
+                fontFamily: "BYekan",
+                fontWeight: "bold",
+                lineHeight: "1.3",
+              }}
+            >
+              <span className="underline-green">سوالات متداول</span>
+            </h2>
+            <img
+              src="/images/question mark.png"
+              alt="سوالات متداول"
+              className="ml-2 w-[100px] md:w-[140px] lg:w-[280px] opacity-80 select-none pointer-events-none align-baseline"
+              style={{ marginBottom: "-12px" }}
+              draggable={false}
+            />
+          </div>
+          {/* Mobile: title and image below */}
+          <div className="flex flex-col md:hidden items-center w-full mb-8 relative z-10">
+            <h2
+              className="text-3xl font-extrabold text-center relative z-10"
+              style={{
+                fontFamily: "BYekan",
+                fontWeight: "bold",
+                lineHeight: "1.3",
+              }}
+            >
+              <span className="underline-green">سوالات متداول</span>
+            </h2>
+            <img
+              src="/images/question mark.png"
+              alt="سوالات متداول"
+              className="mt-2 w-[80px] opacity-80 select-none pointer-events-none"
+              draggable={false}
+            />
+          </div>
+          {/* FAQ Box */}
+          <div
+            className="w-full max-w-2xl bg-white rounded-3xl shadow-md p-0 md:p-8 flex flex-col items-center border border-[#d1fae5] relative z-10"
+            style={{ boxShadow: "0 4px 32px 0 rgba(0,0,0,0.06)" }}
+          >
+            <ul className="divide-y divide-gray-200 w-full">
+              <li className="py-6 px-4 md:px-8 flex items-center justify-between cursor-pointer hover:bg-gray-50 transition">
+                <span className="text-2xl text-gray-400">⌄</span>
+                <span
+                  className="text-lg md:text-xl font-bold text-gray-700"
+                  style={{ fontFamily: "BYekan" }}
+                >
+                  چطوری میتونیم ثبت نام کنیم؟
+                </span>
+              </li>
+              <li className="py-6 px-4 md:px-8 flex items-center justify-between cursor-pointer hover:bg-gray-50 transition">
+                <span className="text-2xl text-gray-400">⌄</span>
+                <span
+                  className="text-lg md:text-xl font-bold text-gray-700"
+                  style={{ fontFamily: "BYekan" }}
+                >
+                  چه محصولاتی رو میتونم سفارش بدم؟
+                </span>
+              </li>
+              <li className="py-6 px-4 md:px-8 flex items-center justify-between cursor-pointer hover:bg-gray-50 transition">
+                <span className="text-2xl text-gray-400">⌄</span>
+                <span
+                  className="text-lg md:text-xl font-bold text-gray-700"
+                  style={{ fontFamily: "BYekan" }}
+                >
+                  نحوه محاسبه قیمت پویو چجوریه؟
+                </span>
+              </li>
+              <li className="py-6 px-4 md:px-8 flex items-center justify-between cursor-pointer hover:bg-gray-50 transition">
+                <span className="text-2xl text-gray-400">⌄</span>
+                <span
+                  className="text-lg md:text-xl font-bold text-gray-700"
+                  style={{ fontFamily: "BYekan" }}
+                >
+                  از چه کشورهایی میتونم سفارش رو ثبت کنم؟
+                </span>
+              </li>
+              <li className="py-6 px-4 md:px-8 flex items-center justify-between cursor-pointer hover:bg-gray-50 transition">
+                <span className="text-2xl text-gray-400">⌄</span>
+                <span
+                  className="text-lg md:text-xl font-bold text-gray-700"
+                  style={{ fontFamily: "BYekan" }}
+                >
+                  چقدر طول میکشه تا سفارش از لحظه ثبت به دستم برسه؟
+                </span>
+              </li>
+            </ul>
+          </div>
+        </section>
         <main className="flex min-h-screen items-center justify-center">
           <h1
             className="text-3xl font-bold"
