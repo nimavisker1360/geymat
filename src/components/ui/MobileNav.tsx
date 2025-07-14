@@ -33,6 +33,22 @@ export default function MobileNav({
     }
   }, [open, onExited]);
 
+  const handleLinkClick = (href: string) => {
+    // Close the mobile menu first
+    if (onExited) onExited();
+
+    // Wait a bit for the menu to close, then scroll
+    setTimeout(() => {
+      const element = document.querySelector(href);
+      if (element) {
+        element.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      }
+    }, 450); // Wait for menu close animation to complete
+  };
+
   if (!shouldRender) return null;
 
   return (
@@ -63,12 +79,12 @@ export default function MobileNav({
           <ul className="divide-y divide-gray-200">
             {navLinks.map((link) => (
               <li key={link.href}>
-                <a
-                  href={link.href}
-                  className="block text-lg font-bold text-gray-800 hover:text-[#f7b6d2] transition-colors py-4 text-right"
+                <button
+                  onClick={() => handleLinkClick(link.href)}
+                  className="block w-full text-lg font-bold text-gray-800 hover:text-[#f7b6d2] transition-colors py-4 text-right"
                 >
                   {link.label}
-                </a>
+                </button>
               </li>
             ))}
           </ul>

@@ -152,7 +152,7 @@ export default function OrderSteps() {
       </h2>
       <div
         id="order-steps-content"
-        className="flex flex-col md:flex-row items-center justify-center gap-12 w-full max-w-5xl relative"
+        className="flex flex-row items-center justify-center gap-6 md:gap-12 w-full max-w-5xl relative"
       >
         {/* Sequential Images */}
         <div className="relative flex items-center justify-center">

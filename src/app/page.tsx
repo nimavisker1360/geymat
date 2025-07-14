@@ -4,6 +4,7 @@ import Hero from "../components/Hero";
 import { Instagram, Send } from "lucide-react";
 import OrderSteps from "../components/ui/OrderSteps";
 import MobileNav from "../components/ui/MobileNav";
+import Brands from "../components/ui/Brands";
 import { useState } from "react";
 
 const MOBILE_MENU_HEIGHT = 180; // px, should match MobileNav minHeight
@@ -45,7 +46,17 @@ export default function Page() {
               <li>
                 <a
                   href="#brands"
-                  className="relative transition group hover:text-[#f7b6d2]"
+                  className="relative transition group hover:text-[#f7b6d2] cursor-pointer"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    const element = document.getElementById("brands");
+                    if (element) {
+                      element.scrollIntoView({
+                        behavior: "smooth",
+                        block: "start",
+                      });
+                    }
+                  }}
                 >
                   برندها
                   <span className="absolute left-0 right-0 bottom-[-8px] mx-auto w-0 h-3 rounded-xl bg-[#f7b6d2] transition-all duration-300 group-hover:w-full"></span>
@@ -167,6 +178,7 @@ export default function Page() {
       >
         <Hero />
         <OrderSteps />
+        <Brands />
         <main className="flex min-h-screen items-center justify-center">
           <h1
             className="text-3xl font-bold"
