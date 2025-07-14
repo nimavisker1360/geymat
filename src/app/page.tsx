@@ -9,6 +9,37 @@ import { useState } from "react";
 
 const MOBILE_MENU_HEIGHT = 180; // px, should match MobileNav minHeight
 
+// FAQItem component for accordion functionality
+function FAQItem({ question, answer }: { question: string; answer: string }) {
+  const [open, setOpen] = useState(false);
+  return (
+    <li
+      className={`py-6 px-4 md:px-8 flex flex-col cursor-pointer hover:bg-gray-50 transition border-b`}
+      onClick={() => setOpen((prev) => !prev)}
+    >
+      <div className="flex items-center justify-between w-full">
+        <span className="text-2xl text-gray-400">{open ? "⌃" : "⌄"}</span>
+        <span
+          className={`text-lg md:text-xl font-bold ${
+            open ? "text-gray-900" : "text-gray-700"
+          }`}
+          style={{ fontFamily: "BYekan" }}
+        >
+          {question}
+        </span>
+      </div>
+      {open && (
+        <div
+          className="mt-4 text-base text-gray-600 text-center md:text-right"
+          style={{ fontFamily: "BYekan" }}
+        >
+          {answer}
+        </div>
+      )}
+    </li>
+  );
+}
+
 export default function Page() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -229,51 +260,26 @@ export default function Page() {
             style={{ boxShadow: "0 4px 32px 0 rgba(0,0,0,0.06)" }}
           >
             <ul className="divide-y divide-gray-200 w-full">
-              <li className="py-6 px-4 md:px-8 flex items-center justify-between cursor-pointer hover:bg-gray-50 transition">
-                <span className="text-2xl text-gray-400">⌄</span>
-                <span
-                  className="text-lg md:text-xl font-bold text-gray-700"
-                  style={{ fontFamily: "BYekan" }}
-                >
-                  چطوری میتونیم ثبت نام کنیم؟
-                </span>
-              </li>
-              <li className="py-6 px-4 md:px-8 flex items-center justify-between cursor-pointer hover:bg-gray-50 transition">
-                <span className="text-2xl text-gray-400">⌄</span>
-                <span
-                  className="text-lg md:text-xl font-bold text-gray-700"
-                  style={{ fontFamily: "BYekan" }}
-                >
-                  چه محصولاتی رو میتونم سفارش بدم؟
-                </span>
-              </li>
-              <li className="py-6 px-4 md:px-8 flex items-center justify-between cursor-pointer hover:bg-gray-50 transition">
-                <span className="text-2xl text-gray-400">⌄</span>
-                <span
-                  className="text-lg md:text-xl font-bold text-gray-700"
-                  style={{ fontFamily: "BYekan" }}
-                >
-                  نحوه محاسبه قیمت پویو چجوریه؟
-                </span>
-              </li>
-              <li className="py-6 px-4 md:px-8 flex items-center justify-between cursor-pointer hover:bg-gray-50 transition">
-                <span className="text-2xl text-gray-400">⌄</span>
-                <span
-                  className="text-lg md:text-xl font-bold text-gray-700"
-                  style={{ fontFamily: "BYekan" }}
-                >
-                  از چه کشورهایی میتونم سفارش رو ثبت کنم؟
-                </span>
-              </li>
-              <li className="py-6 px-4 md:px-8 flex items-center justify-between cursor-pointer hover:bg-gray-50 transition">
-                <span className="text-2xl text-gray-400">⌄</span>
-                <span
-                  className="text-lg md:text-xl font-bold text-gray-700"
-                  style={{ fontFamily: "BYekan" }}
-                >
-                  چقدر طول میکشه تا سفارش از لحظه ثبت به دستم برسه؟
-                </span>
-              </li>
+              <FAQItem
+                question="چطوری میتونیم ثبت نام کنیم؟"
+                answer="کافیه هنگام ورود به اپلیکیشن شماره تلفن خودتون رو وارد کرده و مراحل تکمیل پروفایل رو دنبال کنید."
+              />
+              <FAQItem
+                question="چه محصولاتی رو میتونم سفارش بدم؟"
+                answer="شما می‌توانید انواع محصولات را از طریق اپلیکیشن سفارش دهید. (توضیحات دلخواه خود را اینجا قرار دهید)"
+              />
+              <FAQItem
+                question="نحوه محاسبه قیمت پویو چجوریه؟"
+                answer="قیمت‌ها به صورت پویا و بر اساس شرایط بازار محاسبه می‌شوند. (توضیحات دلخواه خود را اینجا قرار دهید)"
+              />
+              <FAQItem
+                question="از چه کشورهایی میتونم سفارش رو ثبت کنم؟"
+                answer="در حال حاضر امکان ثبت سفارش از کشورهای مختلف وجود دارد. (توضیحات دلخواه خود را اینجا قرار دهید)"
+              />
+              <FAQItem
+                question="چقدر طول میکشه تا سفارش از لحظه ثبت به دستم برسه؟"
+                answer="مدت زمان تحویل سفارش بسته به نوع محصول و مقصد متفاوت است. (توضیحات دلخواه خود را اینجا قرار دهید)"
+              />
             </ul>
           </div>
         </section>
