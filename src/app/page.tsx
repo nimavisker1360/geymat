@@ -6,6 +6,7 @@ import OrderSteps from "../components/ui/OrderSteps";
 import MobileNav from "../components/ui/MobileNav";
 import Brands from "../components/ui/Brands";
 import { useState } from "react";
+import Testimonials from "../components/ui/Testimonials";
 
 const MOBILE_MENU_HEIGHT = 180; // px, should match MobileNav minHeight
 
@@ -105,7 +106,17 @@ export default function Page() {
               <li>
                 <a
                   href="#faq"
-                  className="relative transition group hover:text-[#f7b6d2]"
+                  className="relative transition group hover:text-[#f7b6d2] cursor-pointer"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    const element = document.getElementById("faq");
+                    if (element) {
+                      element.scrollIntoView({
+                        behavior: "smooth",
+                        block: "start",
+                      });
+                    }
+                  }}
                 >
                   پرسش های متداول
                   <span className="absolute left-0 right-0 bottom-[-8px] mx-auto w-0 h-3 rounded-xl bg-[#f7b6d2] transition-all duration-300 group-hover:w-full"></span>
@@ -283,6 +294,7 @@ export default function Page() {
             </ul>
           </div>
         </section>
+        <Testimonials />
         <main className="flex min-h-screen items-center justify-center">
           <h1
             className="text-3xl font-bold"
