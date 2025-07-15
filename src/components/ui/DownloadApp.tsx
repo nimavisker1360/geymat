@@ -25,8 +25,8 @@ export default function DownloadApp() {
             return (
               <circle
                 key={i}
-                cx={x}
-                cy={y}
+                cx={x.toFixed(4)}
+                cy={y.toFixed(4)}
                 r={i % 3 === 0 ? 5 : 3}
                 fill="#ededed"
                 opacity={0.8}
