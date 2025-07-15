@@ -7,6 +7,7 @@ import MobileNav from "../components/ui/MobileNav";
 import Brands from "../components/ui/Brands";
 import { useState } from "react";
 import Testimonials from "../components/ui/Testimonials";
+import DownloadApp from "../components/ui/DownloadApp";
 
 const MOBILE_MENU_HEIGHT = 180; // px, should match MobileNav minHeight
 
@@ -226,6 +227,39 @@ export default function Page() {
           id="faq"
           className="w-full flex flex-col items-center justify-center py-5 relative bg-[#f5f5f5] overflow-hidden"
         >
+          {/* Decorative L (left) and I (right) for desktop */}
+          <img
+            src="/images/L.png"
+            alt="L decorative left"
+            className="hidden md:block"
+            style={{
+              position: "absolute",
+              left: 40,
+              top: "35%",
+              transform: "translateY(-50%)",
+              width: 180,
+              opacity: 0.12,
+              zIndex: 0,
+              pointerEvents: "none",
+            }}
+            draggable={false}
+          />
+          <img
+            src="/images/I.png"
+            alt="I decorative right"
+            className="hidden md:block"
+            style={{
+              position: "absolute",
+              right: 40,
+              top: "70%",
+              transform: "translateY(-50%)",
+              width: 180,
+              opacity: 0.12,
+              zIndex: 0,
+              pointerEvents: "none",
+            }}
+            draggable={false}
+          />
           {/* Desktop: FAQ title and image side by side */}
           <div className="hidden md:flex flex-row items-center justify-center w-full max-w-3xl mb-12 relative z-10">
             <h2
@@ -295,14 +329,15 @@ export default function Page() {
           </div>
         </section>
         <Testimonials />
-        <main className="flex min-h-screen items-center justify-center">
+        <DownloadApp />
+        {/* <main className="flex min-h-screen items-center justify-center">
           <h1
             className="text-3xl font-bold"
             style={{ fontFamily: "BYekan", fontWeight: "bold" }}
           >
             صفحه اصلی
           </h1>
-        </main>
+        </main> */}
       </div>
     </>
   );
