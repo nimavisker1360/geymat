@@ -136,6 +136,7 @@ export default function OrderSteps() {
 
   return (
     <section
+      id="guide"
       className="w-full flex flex-col items-center justify-center py-16 bg-white relative overflow-x-hidden"
       style={{
         scrollSnapAlign: "start",

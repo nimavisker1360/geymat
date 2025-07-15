@@ -42,7 +42,11 @@ const testimonials = [
 const CARD_WIDTH = 420; // px, more rectangular
 const CARD_GAP = 32; // px
 
-export default function Testimonials() {
+interface TestimonialsProps {
+  id?: string;
+}
+
+export default function Testimonials({ id }: TestimonialsProps) {
   const [current, setCurrent] = useState(0);
   const cardCount = testimonials.length;
   const startX = useRef(0);
@@ -125,6 +129,7 @@ export default function Testimonials() {
 
   return (
     <section
+      id={id}
       className="w-full flex flex-col items-center justify-center py-12 bg-white overflow-x-visible"
       style={{ direction: "rtl" }}
     >
