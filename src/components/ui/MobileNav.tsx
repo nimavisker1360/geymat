@@ -5,9 +5,11 @@ import { useEffect, useState } from "react";
 export default function MobileNav({
   open,
   onExited,
+  setShowSupportModal,
 }: {
   open: boolean;
   onExited?: () => void;
+  setShowSupportModal?: (show: boolean) => void;
 }) {
   const navLinks = [
     { href: "#brands", label: "برندها" },
@@ -24,18 +26,35 @@ export default function MobileNav({
     if (open) {
       setShouldRender(true);
       setTimeout(() => setShowPanel(true), 10); // allow mount before animating
+      // Prevent body scroll when mobile menu is open
+      document.body.style.overflow = "hidden";
     } else {
       setShowPanel(false);
       setTimeout(() => {
         setShouldRender(false);
         if (onExited) onExited();
       }, 400); // match transition duration
+      // Restore body scroll when mobile menu closes
+      document.body.style.overflow = "unset";
     }
+
+    // Cleanup on unmount
+    return () => {
+      document.body.style.overflow = "unset";
+    };
   }, [open, onExited]);
 
   const handleLinkClick = (href: string) => {
     // Close the mobile menu first
     if (onExited) onExited();
+
+    // Handle support modal
+    if (href === "#support" && setShowSupportModal) {
+      setTimeout(() => {
+        setShowSupportModal(true);
+      }, 450); // Wait for menu close animation to complete
+      return;
+    }
 
     // Wait a bit for the menu to close, then scroll
     setTimeout(() => {
@@ -55,7 +74,7 @@ export default function MobileNav({
     <div className="md:hidden">
       {/* بک‌دراپ */}
       <div
-        className={`fixed inset-0 bg-black bg-opacity-30 z-40 transition-opacity duration-400 ${
+        className={`fixed inset-0 backdrop-blur-sm z-40 transition-opacity duration-400 ${
           showPanel ? "opacity-100" : "opacity-0 pointer-events-none"
         }`}
         onClick={onExited}
