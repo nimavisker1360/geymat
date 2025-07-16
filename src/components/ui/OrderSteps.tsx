@@ -69,6 +69,17 @@ export default function OrderSteps() {
     }
   }, [isVisible1, visibleTexts.length]);
 
+  // Sequential image fade-in effect
+  useEffect(() => {
+    if (currentImageIndex >= 0) {
+      setShowImage(false);
+      const timeout = setTimeout(() => {
+        setShowImage(true);
+      }, 50); // 50ms delay for transition trigger
+      return () => clearTimeout(timeout);
+    }
+  }, [currentImageIndex]);
+
   // Prevent scrolling during animation and keep items visible once shown
   useEffect(() => {
     if (isVisible1 && visibleTexts.length === 0) {
