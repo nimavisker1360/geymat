@@ -40,7 +40,7 @@ export default function Footer() {
             {/* Socials */}
             <div className="flex flex-row gap-4">
               <a
-                href="https://instagram.com"
+                href="https://instagram.com/gstyle_online"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center justify-center bg-gray-100 rounded-xl w-[90px] h-[90px] md:h-[160px] hover:bg-purple-200 transition"
@@ -99,7 +99,7 @@ export default function Footer() {
                   className="text-base font-bold text-gray-800 col-start-2 row-start-1 hover:text-pink-500"
                   onClick={(e) => {
                     e.preventDefault();
-                    const element = document.getElementById("reviews");
+                    const element = document.getElementById("brands");
                     if (element) {
                       element.scrollIntoView({
                         behavior: "smooth",
@@ -124,7 +124,7 @@ export default function Footer() {
                     }
                   }}
                 >
-                  پرسش های متداول
+                  سوالات متداول
                 </a>
                 <a
                   href="#support"
@@ -194,7 +194,7 @@ export default function Footer() {
                 className="text-lg font-bold text-gray-800 col-start-2 row-start-1 hover:text-pink-500"
                 onClick={(e) => {
                   e.preventDefault();
-                  const element = document.getElementById("reviews");
+                  const element = document.getElementById("brands");
                   if (element) {
                     element.scrollIntoView({
                       behavior: "smooth",
@@ -219,7 +219,7 @@ export default function Footer() {
                   }
                 }}
               >
-                پرسش های متداول
+                سوالات متداول
               </a>
               <a
                 href="#support"
@@ -280,7 +280,7 @@ export default function Footer() {
               </h3>
               <div className="flex items-center gap-3">
                 <span className="text-xl font-bold text-gray-800">
-                  +982191017666
+                  90-5526079800+
                 </span>
                 <svg
                   width="24"
@@ -307,7 +307,7 @@ export default function Footer() {
               </h3>
               <div className="flex gap-4">
                 <a
-                  href="https://instagram.com"
+                  href="https://instagram.com/gstyle_online"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="p-3 border border-gray-300 rounded-lg hover:bg-gray-50 transition"

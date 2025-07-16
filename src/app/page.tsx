@@ -74,7 +74,7 @@ export default function Page() {
             {/* Social Icons */}
             <div className="flex items-center gap-4">
               <a
-                href="https://instagram.com"
+                href="https://instagram.com/gstyle_online"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:opacity-70 transition group"
@@ -367,8 +367,8 @@ export default function Page() {
                 answer="  مدت زمان تحویل سفارش بسته به نوع محصول و مقصد متفاوت است برای تهران  مدت زمان 10 تا 20 دیروز کاری و برای شهرستان 2 تا 3 روز به این زمان اضافه میشود"
               />
               <FAQItem
-                question="نحوه پرداخت به صورت میباشد؟"
-                answer="نحوه پرداخت هم از طریق درگاه زرین پال و هم پرداخت به صورت تتری با دادن آدرس کیف پول میباشد بعداز تایید حسابداری سفارش شما ثبت میشود"
+                question="نحوه پرداخت به چه صورت میباشد؟"
+                answer="نحوه پرداخت هم از طریق درگاه زرین پال و هم پرداخت به صورت تتری با گرفتن آدرس کیف پول میباشد بعداز تایید حسابداری سفارش شما ثبت میشود"
               />
             </ul>
           </div>
@@ -400,7 +400,7 @@ export default function Page() {
               </h3>
               <div className="flex items-center gap-3">
                 <span className="text-xl font-bold text-gray-800">
-                  +982191017666
+                  90-5526079800+
                 </span>
                 <svg
                   width="24"
@@ -427,7 +427,7 @@ export default function Page() {
               </h3>
               <div className="flex gap-4">
                 <a
-                  href="https://instagram.com"
+                  href="https://instagram.com/gstyle_online"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="p-3 border border-gray-300 rounded-lg hover:bg-gray-50 transition"

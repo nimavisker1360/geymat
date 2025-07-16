@@ -132,7 +132,7 @@ function HoverableCenterCircle() {
         G : S
       </span>
       <a
-        href="https://t.me/gstyle_support"
+        href="https://t.me/Gstyleturkey_bot"
         target="_blank"
         rel="noopener noreferrer"
         style={{
