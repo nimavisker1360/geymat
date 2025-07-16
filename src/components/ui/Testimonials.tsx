@@ -5,37 +5,37 @@ const testimonials = [
     name: "شیرین",
     city: "تهران بزرگ",
     text: "من یجورایی به خرید کردن اعتیاد دارم. متاسفانه وقتی یویو اومده تو زندگیم این اعتیادم چند برابر شده! خخخخخ بی شوخی خیلی خوشحالم که پیداتون کردم.",
-    avatar: "/images/3.png",
+    avatar: "/images/shirin.png",
   },
   {
     name: "مهسا",
     city: "تهران بزرگ",
     text: "یویو کلی دغدغه که موقع سفارش دادن داشتم رو حل کرد. مرسی از تیم خوبتون، همیشه همینقدر خفن بمونین.",
-    avatar: "/images/2.png",
+    avatar: "/images/mahsa.png",
   },
   {
     name: "دانیال",
     city: "اصفهان نصف جهان",
     text: "کیفیت خدماتی که به من ارائه شد بیش از حد انتظارم بود. ممنون از تیم حرفه‌ای یویو.",
-    avatar: "/images/1.png",
+    avatar: "/images/danial.png",
   },
   {
     name: "سارا",
     city: "مشهد",
     text: "پشتیبانی عالی و ارسال سریع. واقعاً راضی بودم.",
-    avatar: "/images/4.png",
+    avatar: "/images/sara.png",
   },
   {
     name: "علی",
     city: "تبریز",
     text: "محصولات با کیفیت و قیمت مناسب. پیشنهاد می‌کنم!",
-    avatar: "/images/5.png",
+    avatar: "/images/ali.png",
   },
   {
     name: "نگین",
     city: "شیراز",
     text: "خیلی راحت و سریع سفارش دادم. ممنون از تیم خوبتون.",
-    avatar: "/images/6.png",
+    avatar: "/images/negin.png",
   },
 ];
 
@@ -138,8 +138,8 @@ export default function Testimonials({ id }: TestimonialsProps) {
           src="/images/comment.png"
           alt="نظر مشتریان"
           style={{
-            width: 110,
-            height: 110,
+            width: 220,
+            height: 220,
             objectFit: "contain",
             marginLeft: 24,
           }}
@@ -231,9 +231,12 @@ export default function Testimonials({ id }: TestimonialsProps) {
                     <img
                       src={t.avatar}
                       alt={t.name}
-                      className="w-14 h-14 rounded-full object-cover border border-gray-300"
+                      className="w-10 h-10 rounded-full object-cover border border-gray-100"
                       draggable={false}
                       style={{
+                        width: 80,
+                        height: 80,
+                        objectFit: "cover",
                         transition: "transform 0.3s ease",
                       }}
                     />

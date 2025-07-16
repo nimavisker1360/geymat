@@ -108,6 +108,66 @@ export default function MobileNav({
             ))}
           </ul>
         </nav>
+        {/* Social Icons */}
+        <div className="flex items-center gap-6 justify-center pb-8">
+          <a
+            href="https://instagram.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:opacity-70 transition group"
+            aria-label="Instagram"
+          >
+            {/* Instagram Icon */}
+            <svg
+              className="w-7 h-7 text-gray-800 group-hover:text-[#a259c1]"
+              width="24"
+              height="24"
+              fill="none"
+              viewBox="0 0 24 24"
+            >
+              <rect
+                x="2"
+                y="2"
+                width="20"
+                height="20"
+                rx="6"
+                stroke="currentColor"
+                strokeWidth="2"
+              />
+              <circle
+                cx="12"
+                cy="12"
+                r="5"
+                stroke="currentColor"
+                strokeWidth="2"
+              />
+              <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" />
+            </svg>
+          </a>
+          <a
+            href="https://t.me/gstyle_support"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="transition group"
+            aria-label="Telegram"
+          >
+            {/* Telegram Icon */}
+            <svg
+              className="w-7 h-7 text-gray-800 group-hover:text-[#1976d2]"
+              width="24"
+              height="24"
+              fill="none"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M9.036 16.572l-.397 3.77c.57 0 .816-.246 1.115-.543l2.67-2.558 5.534 4.04c1.014.56 1.74.266 1.99-.94l3.61-16.84c.33-1.53-.553-2.13-1.54-1.76L2.16 9.68c-1.5.59-1.48 1.43-.256 1.81l4.6 1.44 10.68-6.74c.5-.32.96-.14.58.2"
+                stroke="currentColor"
+                strokeWidth="2"
+                fill="none"
+              />
+            </svg>
+          </a>
+        </div>
       </aside>
     </div>
   );

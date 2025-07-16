@@ -82,7 +82,7 @@ export default function Page() {
                 <Instagram className="w-6 h-6 text-gray-800 group-hover:text-[#a259c1]" />
               </a>
               <a
-                href="https://t.me"
+                href="https://t.me/gstyle_support"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="transition group"
@@ -236,7 +236,7 @@ export default function Page() {
                 <Instagram className="w-6 h-6 text-gray-800 group-hover:text-[#a259c1]" />
               </a>
               <a
-                href="https://t.me"
+                href="https://t.me/gstyle_support"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="transition group"
@@ -366,7 +366,7 @@ export default function Page() {
                 question="چقدر طول میکشه تا سفارش از لحظه ثبت به دستم برسه؟"
                 answer="  مدت زمان تحویل سفارش بسته به نوع محصول و مقصد متفاوت است برای تهران  مدت زمان 10 تا 20 دیروز کاری و برای شهرستان 2 تا 3 روز به این زمان اضافه میشود"
               />
-               <FAQItem
+              <FAQItem
                 question="نحوه پرداخت به صورت میباشد؟"
                 answer="نحوه پرداخت هم از طریق درگاه زرین پال و هم پرداخت به صورت تتری با دادن آدرس کیف پول میباشد بعداز تایید حسابداری سفارش شما ثبت میشود"
               />
