@@ -34,6 +34,7 @@ function useIntersectionObserver(options = {}) {
 
 export default function OrderSteps() {
   const [ref1, isVisible1] = useIntersectionObserver();
+  const [animationStarted, setAnimationStarted] = useState(false);
 
   // State for sequential text and image display
   const [visibleTexts, setVisibleTexts] = useState<number[]>([]);
@@ -49,7 +50,36 @@ export default function OrderSteps() {
 
   // Sequential text animation when section becomes visible
   useEffect(() => {
-    if (isVisible1 && visibleTexts.length === 0) {
+    if (isVisible1 && !animationStarted) {
+      setAnimationStarted(true);
+
+      // Disable scrolling using a more reliable method
+      const originalStyle = window.getComputedStyle(document.body).overflow;
+      document.body.style.overflow = "hidden";
+
+      // Prevent scroll events
+      const preventScroll = (e: Event) => {
+        e.preventDefault();
+        e.stopPropagation();
+        return false;
+      };
+
+      // Add event listeners to prevent scrolling
+      document.addEventListener("wheel", preventScroll, { passive: false });
+      document.addEventListener("touchmove", preventScroll, { passive: false });
+      document.addEventListener("keydown", (e) => {
+        if (
+          e.key === "ArrowUp" ||
+          e.key === "ArrowDown" ||
+          e.key === "PageUp" ||
+          e.key === "PageDown" ||
+          e.key === "Home" ||
+          e.key === "End"
+        ) {
+          e.preventDefault();
+        }
+      });
+
       // Start the sequential animation
       const animateTexts = async () => {
         for (let i = 1; i <= 6; i++) {
@@ -63,11 +93,18 @@ export default function OrderSteps() {
             setShowImage(true);
           }
         }
+
+        // Re-enable scrolling after all animations complete
+        setTimeout(() => {
+          document.body.style.overflow = originalStyle;
+          document.removeEventListener("wheel", preventScroll);
+          document.removeEventListener("touchmove", preventScroll);
+        }, 1000); // Wait 1 second after last item appears
       };
 
       animateTexts();
     }
-  }, [isVisible1, visibleTexts.length]);
+  }, [isVisible1, animationStarted]);
 
   // Sequential image fade-in effect
   useEffect(() => {
@@ -80,47 +117,22 @@ export default function OrderSteps() {
     }
   }, [currentImageIndex]);
 
-  // Prevent scrolling during animation and keep items visible once shown
+  // Smooth scroll to center the content when section becomes visible
   useEffect(() => {
-    if (isVisible1 && visibleTexts.length === 0) {
-      // Disable scrolling when animation starts
-      document.body.style.overflow = "hidden";
-
+    if (isVisible1 && !animationStarted) {
       // Smooth scroll to center the content within the section
       const contentDiv = document.getElementById("order-steps-content");
       if (contentDiv) {
-        contentDiv.scrollIntoView({
-          behavior: "smooth",
-          block: "center",
-          inline: "center",
-        });
+        setTimeout(() => {
+          contentDiv.scrollIntoView({
+            behavior: "smooth",
+            block: "center",
+            inline: "center",
+          });
+        }, 100);
       }
-
-      // Start the sequential animation after scrolling
-      setTimeout(() => {
-        const animateTexts = async () => {
-          for (let i = 1; i <= 6; i++) {
-            await new Promise((resolve) => setTimeout(resolve, 2000)); // 2000ms delay between each text
-            setVisibleTexts((prev) => [...prev, i]);
-
-            // Show corresponding image immediately after text appears
-            if (i <= 5) {
-              // Only show images for steps 1-5
-              setCurrentImageIndex(i - 1);
-              setShowImage(true);
-            }
-          }
-
-          // Re-enable scrolling after animation completes
-          setTimeout(() => {
-            document.body.style.overflow = "auto";
-          }, 1000); // Wait 1 second after last item appears
-        };
-
-        animateTexts();
-      }, 500); // Wait for scroll to complete
     }
-  }, [isVisible1, visibleTexts.length]);
+  }, [isVisible1, animationStarted]);
 
   // Scroll to top on page refresh
   useEffect(() => {
@@ -141,14 +153,22 @@ export default function OrderSteps() {
   // Cleanup on component unmount
   useEffect(() => {
     return () => {
-      document.body.style.overflow = "auto";
+      document.body.style.overflow = "";
+      // Remove any event listeners that might still be active
+      const preventScroll = (e: Event) => {
+        e.preventDefault();
+        e.stopPropagation();
+        return false;
+      };
+      document.removeEventListener("wheel", preventScroll);
+      document.removeEventListener("touchmove", preventScroll);
     };
   }, []);
 
   return (
     <section
       id="guide"
-      className="w-full flex flex-col items-center justify-center py-16 bg-white relative overflow-x-hidden"
+      className="w-full flex flex-col items-center justify-center py-16 bg-white relative overflow-hidden"
       style={{
         scrollSnapAlign: "start",
         minHeight: "100vh",

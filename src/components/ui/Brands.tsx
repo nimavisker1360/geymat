@@ -13,16 +13,11 @@ const brandImages = [
   "10.png",
 ];
 
-const ROWS = 2;
-const COLS = 5;
-const CELL_SIZE = 120; // px
-const GAP = 32; // px
-
 export default function Brands() {
   return (
     <section
       id="brands"
-      className="w-full py-12 bg-white flex flex-col items-center"
+      className="w-full py-12 bg-white flex flex-col items-center overflow-hidden"
     >
       <h2
         className="text-2xl md:text-3xl font-bold mb-8 text-center"
@@ -49,10 +44,7 @@ export default function Brands() {
           }}
         />
       </h2>
-      <div
-        className="w-full flex justify-center relative"
-        style={{ minHeight: ROWS * (CELL_SIZE + GAP) }}
-      >
+      <div className="w-full flex justify-center relative px-4">
         {/* دکور سمت چپ */}
         <img
           src="/images/y.png"
@@ -87,33 +79,23 @@ export default function Brands() {
           }}
           draggable={false}
         />
-        <div
-          className="grid"
-          style={{
-            gridTemplateColumns: `repeat(${COLS}, ${CELL_SIZE}px)`,
-            gridTemplateRows: `repeat(${ROWS}, ${CELL_SIZE}px)`,
-            gap: `${GAP}px`,
-            zIndex: 1,
-          }}
-        >
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-4 md:gap-8 max-w-full">
           {brandImages.map((img, idx) => (
             <div
               key={img}
-              className="brand-fade flex flex-col items-center justify-center shadow-md rounded-2xl"
+              className="brand-fade flex flex-col items-center justify-center shadow-md rounded-2xl bg-white p-3 md:p-4"
               style={{
-                width: `${CELL_SIZE}px`,
-                height: `${CELL_SIZE}px`,
-                background: "#fff",
                 animation: `brand-fade-in-out ${
                   3 + (idx % 3)
                 }s ease-in-out infinite`,
-                padding: 12,
+                minHeight: "80px",
+                maxHeight: "120px",
               }}
             >
               <img
                 src={`/images/brands/${img}`}
                 alt={`brand-${img}`}
-                style={{ width: "100%", height: "auto", objectFit: "contain" }}
+                className="w-full h-full object-contain"
                 draggable={false}
               />
             </div>

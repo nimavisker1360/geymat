@@ -130,7 +130,7 @@ export default function Testimonials({ id }: TestimonialsProps) {
   return (
     <section
       id={id}
-      className="w-full flex flex-col items-center justify-center py-12 bg-white overflow-x-visible"
+      className="w-full flex flex-col items-center justify-center py-12 bg-white overflow-hidden"
       style={{ direction: "rtl" }}
     >
       <div className="flex flex-row-reverse items-center justify-center mb-8 gap-4">
