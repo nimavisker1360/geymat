@@ -16,8 +16,8 @@ function useIntersectionObserver(options = {}) {
         setIsIntersecting(entry.isIntersecting);
       },
       {
-        threshold: 0.3,
-        rootMargin: "0px 0px -50px 0px",
+        threshold: 0.1,
+        rootMargin: "-20% 0px -20% 0px",
         ...options,
       }
     );
@@ -120,14 +120,24 @@ export default function OrderSteps() {
   // Smooth scroll to center the content when section becomes visible
   useEffect(() => {
     if (isVisible1 && !animationStarted) {
-      // Smooth scroll to center the content within the section
-      const contentDiv = document.getElementById("order-steps-content");
-      if (contentDiv) {
+      // Smooth scroll to center the section in the viewport
+      const section = document.getElementById("guide");
+      if (section) {
         setTimeout(() => {
-          contentDiv.scrollIntoView({
+          const rect = section.getBoundingClientRect();
+          const windowHeight = window.innerHeight;
+          const scrollTop =
+            window.pageYOffset || document.documentElement.scrollTop;
+          const targetScrollTop =
+            scrollTop + rect.top - windowHeight / 2 + rect.height / 2;
+
+          // Add offset for mobile to account for smaller screens
+          const isMobile = window.innerWidth < 768;
+          const mobileOffset = isMobile ? -50 : 0;
+
+          window.scrollTo({
+            top: targetScrollTop + mobileOffset,
             behavior: "smooth",
-            block: "center",
-            inline: "center",
           });
         }, 100);
       }
@@ -168,26 +178,30 @@ export default function OrderSteps() {
   return (
     <section
       id="guide"
-      className="w-full flex flex-col items-center justify-center py-16 bg-white relative overflow-hidden"
+      className="w-full flex flex-col items-center justify-center py-8 md:py-16 bg-white relative overflow-hidden"
       style={{
         scrollSnapAlign: "start",
         minHeight: "100vh",
         scrollSnapStop: "always",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
       }}
     >
       {/* Title */}
       <h2
-        className="text-3xl md:text-5xl font-extrabold mb-10 text-center"
+        className="text-2xl md:text-3xl lg:text-5xl font-extrabold mb-6 md:mb-10 text-center px-4"
         style={{ fontFamily: "BYekan", fontWeight: "bold", lineHeight: "1.3" }}
       >
         <span className="underline-pink mx-2"> نحوه سفارش از بات</span>
       </h2>
       <div
         id="order-steps-content"
-        className="flex flex-row items-center justify-center gap-6 md:gap-12 w-full max-w-5xl relative"
+        className="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-12 w-full max-w-5xl relative mx-auto px-4"
+        style={{ minHeight: "60vh" }}
       >
         {/* Sequential Images */}
-        <div className="relative flex items-center justify-center">
+        <div className="relative flex items-center justify-center order-2 md:order-1">
           {currentImageIndex >= 0 && currentImageIndex < images.length && (
             <div
               className={`transition-all duration-1000 ease-out ${
@@ -199,7 +213,7 @@ export default function OrderSteps() {
                 alt={`Step ${currentImageIndex + 1}`}
                 width={300}
                 height={600}
-                className="z-10 rounded-lg shadow-lg"
+                className="z-10 rounded-lg shadow-lg w-64 md:w-auto"
                 priority
               />
             </div>
@@ -207,7 +221,7 @@ export default function OrderSteps() {
         </div>
         {/* Steps List */}
         <ul
-          className="flex flex-col gap-6 text-2xl md:text-3xl font-bold text-right"
+          className="flex flex-col gap-4 md:gap-6 text-lg md:text-2xl lg:text-3xl font-bold text-right order-1 md:order-2 w-full md:w-auto"
           style={{ fontFamily: "BYekan", fontWeight: "bold" }}
         >
           <li
@@ -316,7 +330,7 @@ export default function OrderSteps() {
         alt="G logo"
         width={240}
         height={360}
-        className="hidden md:block absolute right-5 top-[55%] -translate-y-1/2 opacity-20 z-0 pointer-events-none select-none"
+        className="hidden lg:block absolute right-5 top-[55%] -translate-y-1/2 opacity-20 z-0 pointer-events-none select-none"
         style={{ filter: "blur(0.5px)" }}
       />
       {/* S.png decorative image on the far left */}
@@ -325,7 +339,7 @@ export default function OrderSteps() {
         alt="S logo"
         width={240}
         height={360}
-        className="hidden md:block absolute left-5 top-[20%] -translate-y-1/2 opacity-20 z-0 pointer-events-none select-none"
+        className="hidden lg:block absolute left-5 top-[20%] -translate-y-1/2 opacity-20 z-0 pointer-events-none select-none"
         style={{ filter: "blur(0.5px)" }}
       />
     </section>

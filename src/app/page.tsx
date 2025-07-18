@@ -20,10 +20,12 @@ function FAQItem({ question, answer }: { question: string; answer: string }) {
       className={`py-6 px-4 md:px-8 flex flex-col cursor-pointer hover:bg-gray-50 transition border-b`}
       onClick={() => setOpen((prev) => !prev)}
     >
-      <div className="flex items-center justify-between w-full">
-        <span className="text-2xl text-gray-400">{open ? "⌃" : "⌄"}</span>
+      <div className="flex items-center gap-3 w-full">
+        <span className="text-2xl text-gray-400 flex-shrink-0">
+          {open ? "⌃" : "⌄"}
+        </span>
         <span
-          className={`text-lg md:text-xl font-bold ${
+          className={`text-lg md:text-xl font-bold flex-1 text-right ${
             open ? "text-gray-900" : "text-gray-700"
           }`}
           style={{ fontFamily: "BYekan" }}
@@ -33,7 +35,7 @@ function FAQItem({ question, answer }: { question: string; answer: string }) {
       </div>
       {open && (
         <div
-          className="mt-4 text-base text-gray-600 text-center md:text-right"
+          className="mt-4 text-base text-gray-600 text-right pr-8"
           style={{ fontFamily: "BYekan" }}
         >
           {answer}
