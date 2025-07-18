@@ -97,6 +97,8 @@ export default function DownloadApp() {
 // --- کامپوننت دایره وسط با hover ---
 function HoverableCenterCircle() {
   const [hovered, setHovered] = useState(false);
+  const [linkHovered, setLinkHovered] = useState(false);
+
   return (
     <div
       className="flex flex-col items-center justify-center"
@@ -119,6 +121,11 @@ function HoverableCenterCircle() {
       }}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
+      onTouchStart={() => setHovered(true)}
+      onTouchEnd={() => {
+        // Delay the reset to allow link interaction
+        setTimeout(() => setHovered(false), 100);
+      }}
     >
       <span
         style={{
@@ -132,11 +139,11 @@ function HoverableCenterCircle() {
         G : S
       </span>
       <a
-        href="https://t.me/Gstyleturkey_bot"
+        href="https://t.me/Gstyleplus_bot"
         target="_blank"
         rel="noopener noreferrer"
         style={{
-          color: "#fff",
+          color: linkHovered ? "#3b82f6" : "#fff",
           fontWeight: "bold",
           fontSize: 16,
           fontFamily: "BYekan",
@@ -145,8 +152,12 @@ function HoverableCenterCircle() {
           cursor: "pointer",
           transition: "color 0.3s ease",
         }}
-        onMouseEnter={(e) => (e.currentTarget.style.color = "#3b82f6")}
-        onMouseLeave={(e) => (e.currentTarget.style.color = "#fff")}
+        onMouseEnter={() => setLinkHovered(true)}
+        onMouseLeave={() => setLinkHovered(false)}
+        onTouchStart={() => setLinkHovered(true)}
+        onTouchEnd={() => {
+          setTimeout(() => setLinkHovered(false), 100);
+        }}
       >
         ورود به ربات تلگرام
       </a>

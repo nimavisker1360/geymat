@@ -23,7 +23,7 @@ export default function Hero() {
         </p>
         <div className="w-2/3 flex justify-end mt-4">
           <a
-            href="https://t.me/NimaRealTrade_Bot"
+            href="https://t.me/Gstyleplus_bot"
             target="_blank"
             rel="noopener noreferrer"
             className="w-full"

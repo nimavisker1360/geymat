@@ -36,7 +36,7 @@ export default function Footer() {
         {/* Main content */}
         <div className="flex flex-col md:flex-row w-full justify-between items-center md:items-start px-4 md:px-0 gap-6 md:gap-4">
           {/* Socials and Enamd on same line for mobile */}
-          <div className="flex flex-col md:flex-row items-start md:items-center justify-between w-full md:w-auto order-1 md:order-1 gap-8 ">
+          <div className="flex flex-col md:flex-row items-start md:items-center justify-between w-full md:w-auto order-1 md:order-1 gap-8 pr-6 md:pr-2">
             {/* Socials */}
             <div className="flex flex-row gap-4">
               <a
@@ -76,11 +76,11 @@ export default function Footer() {
               </a>
             </div>
             {/* Enamd Logo and Links for mobile - on same line */}
-            <div className="flex items-center justify-between md:hidden w-full">
+            <div className="flex items-center justify-between md:hidden w-full pr-8">
               <div className="grid grid-cols-2 grid-rows-3 gap-x-15 gap-y-2 text-right">
                 <a
                   href="#guide"
-                  className="text-base font-bold text-gray-800 col-start-1 row-start-1 hover:text-pink-500"
+                  className="text-base font-bold text-gray-800 col-start-1 row-start-1 hover:text-pink-500 transition-colors duration-200"
                   onClick={(e) => {
                     e.preventDefault();
                     const element = document.getElementById("guide");
@@ -96,7 +96,7 @@ export default function Footer() {
                 </a>
                 <a
                   href="#brands"
-                  className="text-base font-bold text-gray-800 col-start-2 row-start-1 hover:text-pink-500"
+                  className="text-base font-bold text-gray-800 col-start-2 row-start-1 hover:text-pink-500 transition-colors duration-200"
                   onClick={(e) => {
                     e.preventDefault();
                     const element = document.getElementById("brands");
@@ -112,7 +112,7 @@ export default function Footer() {
                 </a>
                 <a
                   href="#faq"
-                  className="text-base font-bold text-gray-800 col-start-1 row-start-2 hover:text-pink-500"
+                  className="text-base font-bold text-gray-800 col-start-1 row-start-2 hover:text-pink-500 transition-colors duration-200"
                   onClick={(e) => {
                     e.preventDefault();
                     const element = document.getElementById("faq");
@@ -128,7 +128,7 @@ export default function Footer() {
                 </a>
                 <a
                   href="#support"
-                  className="text-base font-bold text-gray-800 col-start-2 row-start-2 hover:text-pink-500 cursor-pointer"
+                  className="text-base font-bold text-gray-800 col-start-2 row-start-2 hover:text-pink-500 cursor-pointer transition-colors duration-200"
                   onClick={(e) => {
                     e.preventDefault();
                     setShowSupportModal(true);
@@ -138,7 +138,7 @@ export default function Footer() {
                 </a>
                 <a
                   href="#testimonials"
-                  className="text-base font-bold text-gray-800 col-start-1 row-start-3 hover:text-pink-500"
+                  className="text-base font-bold text-gray-800 col-start-1 row-start-3 hover:text-pink-500 transition-colors duration-200"
                   onClick={(e) => {
                     e.preventDefault();
                     const element = document.getElementById("reviews");
@@ -153,7 +153,7 @@ export default function Footer() {
                   نظرات مشتریان
                 </a>
               </div>
-              <div className="flex items-center justify-center">
+              <div className="flex items-center justify-center pr-2">
                 <img
                   src="/images/enamd.png"
                   alt="enamd logo"
