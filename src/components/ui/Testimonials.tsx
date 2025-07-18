@@ -1,4 +1,5 @@
 import React, { useRef, useState } from "react";
+import Image from "next/image";
 
 const testimonials = [
   {
@@ -134,9 +135,11 @@ export default function Testimonials({ id }: TestimonialsProps) {
       style={{ direction: "rtl" }}
     >
       <div className="flex flex-row-reverse items-center justify-center mb-8 gap-4">
-        <img
+        <Image
           src="/images/comment.png"
           alt="نظر مشتریان"
+          width={220}
+          height={220}
           style={{
             width: 220,
             height: 220,
@@ -228,9 +231,11 @@ export default function Testimonials({ id }: TestimonialsProps) {
                 {/* Card content (no purple bar div anymore) */}
                 <div style={{ position: "relative", zIndex: 1, width: "100%" }}>
                   <div className="flex flex-row items-start gap-3 mb-4 w-full justify-start">
-                    <img
+                    <Image
                       src={t.avatar}
                       alt={t.name}
+                      width={80}
+                      height={80}
                       className="w-10 h-10 rounded-full object-cover border border-gray-100"
                       draggable={false}
                       style={{

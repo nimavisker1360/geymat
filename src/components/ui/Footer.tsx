@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import Image from "next/image";
+import { slowScrollToElement } from "@/utils/scrollUtils";
 
 export default function Footer() {
   const [showSupportModal, setShowSupportModal] = useState(false);
@@ -24,9 +26,11 @@ export default function Footer() {
       >
         {/* Logo */}
         <div className="flex justify-center items-center w-full mb-2 mt-2 px-2 ">
-          <img
+          <Image
             src="/images/logo01.png"
             alt="ioio logo"
+            width={120}
+            height={32}
             style={{
               height: 32,
             }}
@@ -85,10 +89,7 @@ export default function Footer() {
                     e.preventDefault();
                     const element = document.getElementById("guide");
                     if (element) {
-                      element.scrollIntoView({
-                        behavior: "smooth",
-                        block: "start",
-                      });
+                      slowScrollToElement(element);
                     }
                   }}
                 >
@@ -101,10 +102,7 @@ export default function Footer() {
                     e.preventDefault();
                     const element = document.getElementById("brands");
                     if (element) {
-                      element.scrollIntoView({
-                        behavior: "smooth",
-                        block: "start",
-                      });
+                      slowScrollToElement(element);
                     }
                   }}
                 >
@@ -117,10 +115,7 @@ export default function Footer() {
                     e.preventDefault();
                     const element = document.getElementById("faq");
                     if (element) {
-                      element.scrollIntoView({
-                        behavior: "smooth",
-                        block: "start",
-                      });
+                      slowScrollToElement(element);
                     }
                   }}
                 >
@@ -143,10 +138,7 @@ export default function Footer() {
                     e.preventDefault();
                     const element = document.getElementById("reviews");
                     if (element) {
-                      element.scrollIntoView({
-                        behavior: "smooth",
-                        block: "start",
-                      });
+                      slowScrollToElement(element);
                     }
                   }}
                 >
@@ -154,9 +146,11 @@ export default function Footer() {
                 </a>
               </div>
               <div className="flex items-center justify-center pr-2">
-                <img
+                <Image
                   src="/images/enamd.png"
                   alt="enamd logo"
+                  width={100}
+                  height={100}
                   style={{ height: 100 }}
                 />
               </div>
@@ -164,9 +158,11 @@ export default function Footer() {
           </div>
           {/* Enamd Logo for desktop */}
           <div className="hidden md:flex items-center justify-center order-2 md:order-2">
-            <img
+            <Image
               src="/images/enamd.png"
               alt="enamd logo"
+              width={250}
+              height={250}
               style={{ height: 250 }}
             />
           </div>
@@ -180,10 +176,7 @@ export default function Footer() {
                   e.preventDefault();
                   const element = document.getElementById("guide");
                   if (element) {
-                    element.scrollIntoView({
-                      behavior: "smooth",
-                      block: "start",
-                    });
+                    slowScrollToElement(element);
                   }
                 }}
               >
@@ -196,10 +189,7 @@ export default function Footer() {
                   e.preventDefault();
                   const element = document.getElementById("brands");
                   if (element) {
-                    element.scrollIntoView({
-                      behavior: "smooth",
-                      block: "start",
-                    });
+                    slowScrollToElement(element);
                   }
                 }}
               >
@@ -212,10 +202,7 @@ export default function Footer() {
                   e.preventDefault();
                   const element = document.getElementById("faq");
                   if (element) {
-                    element.scrollIntoView({
-                      behavior: "smooth",
-                      block: "start",
-                    });
+                    slowScrollToElement(element);
                   }
                 }}
               >
@@ -238,10 +225,7 @@ export default function Footer() {
                   e.preventDefault();
                   const element = document.getElementById("reviews");
                   if (element) {
-                    element.scrollIntoView({
-                      behavior: "smooth",
-                      block: "start",
-                    });
+                    slowScrollToElement(element);
                   }
                 }}
               >

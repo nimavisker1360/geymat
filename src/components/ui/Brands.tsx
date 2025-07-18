@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 
 const brandImages = [
   "1.png",
@@ -46,9 +47,11 @@ export default function Brands() {
       </h2>
       <div className="w-full flex justify-center relative px-4">
         {/* دکور سمت چپ */}
-        <img
+        <Image
           src="/images/y.png"
           alt="Y decorative left"
+          width={180}
+          height={180}
           className="hidden md:block"
           style={{
             position: "absolute",
@@ -63,9 +66,11 @@ export default function Brands() {
           draggable={false}
         />
         {/* دکور سمت راست */}
-        <img
+        <Image
           src="/images/T.png"
           alt="T decorative right"
+          width={180}
+          height={180}
           className="hidden md:block"
           style={{
             position: "absolute",
@@ -92,9 +97,11 @@ export default function Brands() {
                 maxHeight: "120px",
               }}
             >
-              <img
+              <Image
                 src={`/images/brands/${img}`}
                 alt={`brand-${img}`}
+                width={120}
+                height={120}
                 className="w-full h-full object-contain"
                 draggable={false}
               />

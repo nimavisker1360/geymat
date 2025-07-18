@@ -1,6 +1,7 @@
 "use client";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
+import { slowScrollTo } from "@/utils/scrollUtils";
 
 // Custom hook for intersection observer
 function useIntersectionObserver(options = {}) {
@@ -124,21 +125,10 @@ export default function OrderSteps() {
       const section = document.getElementById("guide");
       if (section) {
         setTimeout(() => {
-          const rect = section.getBoundingClientRect();
-          const windowHeight = window.innerHeight;
-          const scrollTop =
-            window.pageYOffset || document.documentElement.scrollTop;
-          const targetScrollTop =
-            scrollTop + rect.top - windowHeight / 2 + rect.height / 2;
-
-          // Add offset for mobile to account for smaller screens
+          // Use custom slow scroll instead of native smooth scroll
           const isMobile = window.innerWidth < 768;
-          const mobileOffset = isMobile ? -50 : 0;
-
-          window.scrollTo({
-            top: targetScrollTop + mobileOffset,
-            behavior: "smooth",
-          });
+          const duration = isMobile ? 3000 : 2000; // 3 seconds for mobile, 2 for desktop
+          slowScrollTo(section, duration);
         }, 100);
       }
     }

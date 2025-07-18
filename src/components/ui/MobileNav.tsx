@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { slowScrollToElement } from "@/utils/scrollUtils";
 
 export default function MobileNav({
   open,
@@ -58,12 +59,9 @@ export default function MobileNav({
 
     // Wait a bit for the menu to close, then scroll
     setTimeout(() => {
-      const element = document.querySelector(href);
+      const element = document.querySelector(href) as HTMLElement;
       if (element) {
-        element.scrollIntoView({
-          behavior: "smooth",
-          block: "start",
-        });
+        slowScrollToElement(element);
       }
     }, 450); // Wait for menu close animation to complete
   };

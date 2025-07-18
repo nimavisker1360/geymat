@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import Image from "next/image";
 import Hero from "../components/Hero";
 import { Instagram, Send } from "lucide-react";
 import OrderSteps from "../components/ui/OrderSteps";
@@ -9,6 +10,7 @@ import Brands from "../components/ui/Brands";
 import Testimonials from "../components/ui/Testimonials";
 import DownloadApp from "../components/ui/DownloadApp";
 import Footer from "@/components/ui/Footer";
+import { slowScrollToElement } from "@/utils/scrollUtils";
 
 const MOBILE_MENU_HEIGHT = 180; // px, should match MobileNav minHeight
 
@@ -102,10 +104,7 @@ export default function Page() {
                     e.preventDefault();
                     const element = document.getElementById("brands");
                     if (element) {
-                      element.scrollIntoView({
-                        behavior: "smooth",
-                        block: "start",
-                      });
+                      slowScrollToElement(element);
                     }
                   }}
                 >
@@ -121,10 +120,7 @@ export default function Page() {
                     e.preventDefault();
                     const element = document.getElementById("guide");
                     if (element) {
-                      element.scrollIntoView({
-                        behavior: "smooth",
-                        block: "start",
-                      });
+                      slowScrollToElement(element);
                     }
                   }}
                 >
@@ -140,10 +136,7 @@ export default function Page() {
                     e.preventDefault();
                     const element = document.getElementById("faq");
                     if (element) {
-                      element.scrollIntoView({
-                        behavior: "smooth",
-                        block: "start",
-                      });
+                      slowScrollToElement(element);
                     }
                   }}
                 >
@@ -172,10 +165,7 @@ export default function Page() {
                     e.preventDefault();
                     const element = document.getElementById("reviews");
                     if (element) {
-                      element.scrollIntoView({
-                        behavior: "smooth",
-                        block: "start",
-                      });
+                      slowScrollToElement(element);
                     }
                   }}
                 >
@@ -186,9 +176,11 @@ export default function Page() {
             </ul>
             {/* Logo */}
             <div className="flex items-center">
-              <img
+              <Image
                 src="/images/logo01.png"
                 alt="ق.ی.م.ت"
+                width={120}
+                height={32}
                 className="h-8 drop-shadow-md"
               />
             </div>
@@ -220,9 +212,11 @@ export default function Page() {
             </button>
             {/* Logo (center) */}
             <div className="flex-1 flex justify-center order-2">
-              <img
+              <Image
                 src="/images/logo01.png"
                 alt="ق.ی.م.ت"
+                width={80}
+                height={32}
                 className="h-8 drop-shadow-md"
                 style={{ maxWidth: 80 }}
               />
@@ -272,9 +266,11 @@ export default function Page() {
           className="w-full flex flex-col items-center justify-center py-5 relative bg-[#f5f5f5] overflow-hidden"
         >
           {/* Decorative L (left) and I (right) for desktop */}
-          <img
+          <Image
             src="/images/L.png"
             alt="L decorative left"
+            width={180}
+            height={180}
             className="hidden md:block"
             style={{
               position: "absolute",
@@ -288,9 +284,11 @@ export default function Page() {
             }}
             draggable={false}
           />
-          <img
+          <Image
             src="/images/I.png"
             alt="I decorative right"
+            width={180}
+            height={180}
             className="hidden md:block"
             style={{
               position: "absolute",
@@ -316,9 +314,11 @@ export default function Page() {
             >
               <span className="underline-green">سوالات متداول</span>
             </h2>
-            <img
+            <Image
               src="/images/question mark.png"
               alt="سوالات متداول"
+              width={280}
+              height={280}
               className="ml-2 w-[100px] md:w-[140px] lg:w-[280px] opacity-80 select-none pointer-events-none align-baseline"
               style={{ marginBottom: "-12px" }}
               draggable={false}
@@ -336,9 +336,11 @@ export default function Page() {
             >
               <span className="underline-green">سوالات متداول</span>
             </h2>
-            <img
+            <Image
               src="/images/question mark.png"
               alt="سوالات متداول"
+              width={80}
+              height={80}
               className="mt-2 w-[80px] opacity-80 select-none pointer-events-none"
               draggable={false}
             />
@@ -355,7 +357,7 @@ export default function Page() {
               />
               <FAQItem
                 question="چه محصولاتی رو میتونم سفارش بدم؟"
-                answer="شما می‌توانید انواع محصولات شامل مد و فشن و زیبایی و آرایشی و بهداشتی را از طریق بات سفارش دهید"
+                answer="شما می‌توانید  محصولات پوشاک شامل مد و فشن لباس  مردانه و زنانه  و بچه گانه محصولات  زیبایی و آرایشی و بهداشتی  لوازم جانبی موبایل و کامپیوتر انواع ویتامین ها  و مکمل های غذایی و  کارت های هدیه برندهای معروف را از طریق بات سفارش دهید"
               />
               <FAQItem
                 question="نحوه محاسبه قیمت جی استایل چجوریه؟"
