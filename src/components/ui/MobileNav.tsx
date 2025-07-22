@@ -13,6 +13,7 @@ export default function MobileNav({
   setShowSupportModal?: (show: boolean) => void;
 }) {
   const navLinks = [
+    { href: "#custom-order-form", label: " ثبت سفارش" },
     { href: "#brands", label: "برندها" },
     { href: "#guide", label: "راهنمای خرید" },
     { href: "#faq", label: "پرسش های متداول" },

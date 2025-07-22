@@ -37,11 +37,14 @@ export const slowScrollToDesktop = (element: HTMLElement) => {
 // Universal slow scroll function that detects device type
 export const slowScrollToElement = (element: HTMLElement) => {
   const isMobile = window.innerWidth <= 768;
-  if (isMobile) {
-    slowScrollToMobile(element);
-  } else {
-    slowScrollToDesktop(element);
-  }
+  const offset = isMobile ? 80 : 0; // Offset for mobile header/menu
+  const targetPosition =
+    element.getBoundingClientRect().top + window.pageYOffset - offset;
+
+  window.scrollTo({
+    top: targetPosition,
+    behavior: "smooth",
+  });
 };
 
 // Alternative: Use native smooth scroll with reduced speed

@@ -50,6 +50,9 @@ function FAQItem({ question, answer }: { question: string; answer: string }) {
 export default function Page() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [showSupportModal, setShowSupportModal] = useState(false);
+  const [showFormSent, setShowFormSent] = useState(false);
+  const [fullName, setFullName] = useState("");
+  const [productLink, setProductLink] = useState("");
 
   // Prevent body scroll when modal is open
   useEffect(() => {
@@ -170,6 +173,26 @@ export default function Page() {
                   }}
                 >
                   نظرات مشتریان
+                  <span className="absolute left-0 right-0 bottom-[-8px] mx-auto w-0 h-3 rounded-xl bg-[#f7b6d2] transition-all duration-300 group-hover:w-full"></span>
+                </a>
+              </li>
+              {/* سفارشات */}
+              <li>
+                <a
+                  href="#custom-order-form"
+                  className="relative transition group hover:text-[#f7b6d2] cursor-pointer"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    const el = document.getElementById("custom-order-form");
+                    if (el) {
+                      el.scrollIntoView({
+                        behavior: "smooth",
+                        block: "center",
+                      });
+                    }
+                  }}
+                >
+                  ثبت سفارش
                   <span className="absolute left-0 right-0 bottom-[-8px] mx-auto w-0 h-3 rounded-xl bg-[#f7b6d2] transition-all duration-300 group-hover:w-full"></span>
                 </a>
               </li>
@@ -376,6 +399,76 @@ export default function Page() {
                 answer="نحوه پرداخت هم از طریق درگاه زرین پال و هم پرداخت به صورت تتری با گرفتن آدرس کیف پول میباشد بعداز تایید حسابداری سفارش شما ثبت میشود"
               />
             </ul>
+            {/* --- Custom Order Form --- */}
+            <section
+              id="custom-order-form"
+              className="w-full mt-8 p-6 bg-[#f7b6d2]/10 rounded-2xl border border-[#f7b6d2] flex flex-col items-center"
+              style={{ fontFamily: "BYekan" }}
+            >
+              <h3 className="text-xl font-bold mb-4 text-[#a259c1]">
+                درخواست سفارش محصول
+              </h3>
+              <form
+                key={showFormSent ? "sent" : "not-sent"}
+                className="w-full flex flex-col gap-4"
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  // ساخت پیام
+                  const message = `درخواست سفارش جدید:\nنام: ${fullName}\nلینک محصول: ${productLink}`;
+                  // تبدیل پیام به url friendly
+                  const encodedMessage = encodeURIComponent(message);
+                  // لینک تلگرام (به پشتیبانی)
+                  const telegramUrl = `https://t.me/gstyle_support?text=${encodedMessage}`;
+                  // هدایت کاربر
+                  window.open(telegramUrl, "_blank");
+                  setShowFormSent(true);
+                  setFullName("");
+                  setProductLink("");
+                }}
+              >
+                <input
+                  type="text"
+                  name="fullname"
+                  required
+                  placeholder="نام و نام خانوادگی"
+                  className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:border-[#a259c1] focus:ring-2 focus:ring-[#f7b6d2] outline-none text-right text-base bg-white"
+                  style={{ fontFamily: "BYekan" }}
+                  value={fullName}
+                  onChange={(e) => setFullName(e.target.value)}
+                />
+                <input
+                  type="url"
+                  name="productLink"
+                  required
+                  placeholder="لینک محصول"
+                  className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:border-[#a259c1] focus:ring-2 focus:ring-[#f7b6d2] outline-none text-right text-base bg-white"
+                  style={{ fontFamily: "BYekan" }}
+                  value={productLink}
+                  onChange={(e) => setProductLink(e.target.value)}
+                />
+                <button
+                  type="submit"
+                  className="w-full py-2 rounded-lg bg-[#a259c1] text-white font-bold text-lg hover:bg-[#8d3fae] transition-colors mt-2"
+                  style={{ fontFamily: "BYekan" }}
+                >
+                  ارسال به پشتیبانی
+                </button>
+              </form>
+              {showFormSent && (
+                <div className="mt-4 text-green-600 text-center text-base font-bold flex flex-col items-center gap-2">
+                  <span>درخواست شما ثبت شد!</span>
+                  <a
+                    href="https://t.me/gstyle_support"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="underline text-[#1976d2] hover:text-[#a259c1]"
+                  >
+                    ارتباط با پشتیبانی در تلگرام
+                  </a>
+                </div>
+              )}
+            </section>
+            {/* --- End Custom Order Form --- */}
           </div>
         </section>
         <Testimonials id="reviews" />
